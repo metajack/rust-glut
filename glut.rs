@@ -12,7 +12,8 @@
 use glut::bindgen::{glutCreateWindow, glutDestroyWindow, glutDisplayFunc, glutMouseFunc};
 use glut::bindgen::{glutKeyboardFunc, glutGetModifiers, glutMotionFunc, glutPassiveMotionFunc};
 use glut::bindgen::{glutGet, glutGetWindow};
-use glut::bindgen::{glutInit, glutInitDisplayMode, glutPostRedisplay, glutReshapeFunc};
+use glut::bindgen::{glutInit, glutInitDisplayMode, glutInitWindowSize, glutInitWindowPositions};
+use glut::bindgen::{glutPostRedisplay, glutReshapeFunc};
 use glut::bindgen::{glutReshapeWindow, glutSetWindow, glutSetWindowTitle, glutSwapBuffers};
 use glut::bindgen::{glutTimerFunc, glutIdleFunc};
 use core::libc::*;
@@ -336,6 +337,18 @@ pub fn check_loop() {
 pub fn init_display_mode(mode: c_uint) {
     unsafe {
         glutInitDisplayMode(mode);
+    }
+}
+
+pub fn init_window_size(width: c_int, height: c_int) {
+    unsafe {
+        glutInitWindowSize(width, height);
+    }
+}
+
+pub fn init_window_position(x: c_int, y: c_int) {
+    unsafe {
+        glutInitWindowPosition(x, y);
     }
 }
 
